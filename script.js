@@ -483,10 +483,256 @@ document.addEventListener('visibilitychange', () => {
     }
 });
 
+// Project Modal System
+const projectData = {
+    'phageseeker': {
+        title: 'PhageSeeker',
+        overview: 'Bioinformatics tool for detecting and analyzing bacteriophage sequences in bacterial genome assemblies. Uses BLAST database searches and pandas for data processing to identify viral sequences in FASTA format files.',
+        methodology: `
+            <h3>Implementation Approach</h3>
+            <div class="modal-code">import pandas as pd
+from Bio import SeqIO
+# BLAST database search implementation
+# Sequence alignment and analysis pipeline</div>
+            
+            <h3>Analysis Pipeline</h3>
+            <p>1. <strong>Sequence Input Processing:</strong> Parse FASTA format bacterial genome assemblies and prepare sequences for analysis.</p>
+            
+            <p>2. <strong>BLAST Database Search:</strong> Perform sequence alignment against comprehensive bacteriophage database to identify potential viral sequences.</p>
+            
+            <p>3. <strong>Data Processing with pandas:</strong> Use pandas DataFrames for efficient manipulation and analysis of BLAST search results, including hit scoring and filtering.</p>
+            
+            <p>4. <strong>Results Analysis:</strong> Apply statistical thresholds and quality filters to identify high-confidence bacteriophage sequences within bacterial genomes.</p>
+            
+            <p>5. <strong>Report Generation:</strong> Generate comprehensive reports of identified viral sequences with detailed annotations and confidence scores.</p>
+            
+            <h3>Key Features</h3>
+            <p>• Automated pipeline for bacteriophage detection in bacterial genomes</p>
+            <p>• Integration with BLAST for sequence similarity searches</p>
+            <p>• Efficient data handling using pandas for large genomic datasets</p>
+            <p>• Comprehensive reporting system for identified viral sequences</p>
+        `,
+        technologies: ['Python', 'pandas', 'BLAST Database', 'Sequence Analysis', 'Data Processing', 'FASTA Analysis'],
+        github: 'https://github.com/PhageSeeker/PHAGESEEKER'
+    },
+    
+    'tcga-glioma': {
+        title: 'TCGA Glioma Data Analysis',
+        overview: 'Comprehensive statistical analysis of 1,122 brain lower grade glioma samples from TCGA using R and Bioconductor. Complete workflow from data cleaning through gene set analysis, including heatmap clustering, differential expression analysis, and IDH correlation studies.',
+        methodology: `
+            <h3>Data Preprocessing & Quality Control</h3>
+            <div class="modal-code">library(omicsdata)
+library(limma)
+library(edgeR)
+# Data cleaning and preprocessing
+dataset <- fetch_tcga_dataset("LGG")
+filtered_data <- filterByExpr(dataset)</div>
+            
+            <h3>Complete Analysis Workflow</h3>
+            <p>1. <strong>Data Cleaning:</strong> Initial data quality assessment and removal of low-quality samples and genes.</p>
+            
+            <p>2. <strong>Exploratory Data Analysis:</strong> Evaluation of CG content bias to identify potential technical artifacts and batch effects.</p>
+            
+            <p>3. <strong>Filtering and Normalization:</strong> Applied TMM normalization and filtered low-expression genes to ensure robust downstream analysis.</p>
+            
+            <p>4. <strong>Inferential Statistics:</strong> Built design matrices and performed statistical modeling for differential expression analysis.</p>
+            
+            <p>5. <strong>Contrast Matrix & DGE Object:</strong> Constructed contrast matrices to define specific comparisons between glioma subtypes.</p>
+            
+            <p>6. <strong>Mean Gene Expression Plotting:</strong> Generated visualization of average expression levels across sample groups.</p>
+            
+            <p>7. <strong>Pairwise Comparisons:</strong> Performed statistical tests between all possible subtype combinations.</p>
+            
+            <p>8. <strong>FDR Correction:</strong> Applied false discovery rate correction to control for multiple testing bias.</p>
+            
+            <p>9. <strong>Differential Expression Analysis:</strong> Identified differentially expressed genes (DEGs) with statistical significance.</p>
+            
+            <p>10. <strong>P-value Distribution Analysis:</strong> Assessed the distribution of p-values to validate statistical model assumptions.</p>
+            
+            <p>11. <strong>Heatmap and Clustering:</strong> Generated hierarchical clustering heatmaps to visualize expression patterns and sample relationships.</p>
+            
+            <p>12. <strong>Gene Set Analysis:</strong> Comprehensive pathway analysis including:</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;• Over-Representation Analysis (ORA) method</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;• KEGG pathway enrichment analysis</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;• REACTOME pathways analysis</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;• Gene Ontology (GO) term enrichment</p>
+            
+            <p>13. <strong>IDH Status Correlation:</strong> Analyzed correlation between gene expression profiles and IDH mutation status, a key prognostic marker in gliomas.</p>
+            
+            <h3>Visualization & Results</h3>
+            <p>• Comprehensive heatmaps showing gene expression clustering patterns</p>
+            <p>• Statistical plots including p-value distributions and expression boxplots</p>
+            <p>• Pathway enrichment visualizations for biological interpretation</p>
+            <p>• IDH correlation analysis revealing molecular subtype characteristics</p>
+            
+            <h3>Project Heatmap Visualization</h3>
+            <div style="text-align: center; margin: 1.5rem 0;">
+                <img src="heatmap_glioma_project.png" alt="TCGA Glioma Expression Heatmap with Hierarchical Clustering" style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-color); box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem; font-style: italic;">
+                    Hierarchical clustering heatmap showing gene expression patterns across glioma molecular subtypes (LGr1-4) with clear separation of sample groups based on expression profiles.
+                </p>
+            </div>
+        `,
+        technologies: ['R', 'Bioconductor', 'omicsdata', 'Statistical Analysis', 'Data Visualization', 'Survival Analysis', 'Exploratory Analysis', 'Data Cleaning'],
+        github: 'https://github.com/K4thvsf/tcga-glioma-analysis'
+    },
+    
+    'orf-prediction': {
+        title: 'ORF Prediction Tool',
+        overview: 'Developed a computational tool for predicting open reading frames (ORFs) in nucleotide sequences, demonstrated with BRCA2 gene analysis. The tool implements comprehensive start/stop codon detection with genetic code translation.',
+        methodology: `
+            <h3>Tool Implementation</h3>
+            <div class="modal-code">def find_atg(seq):
+    pos = seq.find("ATG")
+    assert pos >= 0, "No ATG start codon found"
+    return pos
+
+def find_stop_codons(seq):
+    stop_codons = ["UAA", "UAG", "UGA"]
+    # Convert DNA to RNA
+    rna_seq = seq.replace('T', 'U')
+    # Find nearest stop codon
+    return min_stop_position</div>
+            
+            <h3>Implementation Steps</h3>
+            <p>1. <strong>Start codon detection:</strong> Locate ATG sequences within the input nucleotide sequence using string search algorithms with proper error handling for sequences without start codons.</p>
+            
+            <p>2. <strong>Stop codon identification:</strong> Implement detection for all three stop codons (UAA, UAG, UGA) with frame-aware searching to maintain proper reading frame alignment.</p>
+            
+            <p>3. <strong>Genetic code translation:</strong> Convert nucleotide triplets to amino acids using a comprehensive genetic code dictionary covering all 64 possible codons.</p>
+            
+            <p>4. <strong>ORF validation:</strong> Ensure predicted ORFs meet minimum length requirements and maintain proper reading frame throughout the sequence.</p>
+            
+            <h3>Example Analysis - BRCA2 Gene</h3>
+            <div class="modal-code">seq = "AAAATGCCTATTGGATCCAAAGAGAGGCCAACATTTTTTGAAATTTTTAAGACACGCTGCAACAAAGCAGATTTAGGACCAATAAGTCTTTAAATGCAATAA"
+pos = find_atg(seq)
+orf_sequence = extract_orf(seq[pos:])
+amino_acids = translate_to_protein(orf_sequence)</div>
+        `,
+        technologies: ['Python', 'Bioinformatics', 'Genetic Code', 'Sequence Analysis', 'BRCA2', 'String Processing', 'Tool Development'],
+        github: 'https://github.com/K4thvsf/orf-prediction'
+    },
+    
+    'car-genetic-algorithm': {
+        title: 'Genetic Algorithm Implementation',
+        overview: 'Implementation of genetic algorithms for car design optimization developed as part of systems biology coursework. Features population-based evolution with selection, crossover, and mutation operations to optimize car performance across multiple generations.',
+        methodology: `
+            <h3>Genetic Algorithm Implementation</h3>
+            <div class="modal-code">def initial_population(size):
+    return [random_car() for _ in range(size)]
+
+def generation(cars):
+    scores = carsim.race(cars)
+    top_cars = select_best(cars, scores, 0.3)
+    new_generation = breed_population(top_cars)
+    return new_generation</div>
+            
+            <h3>Car Genome Representation</h3>
+            <p>Each car is encoded as a 15-element genome vector containing:</p>
+            <p>• <strong>Frame length</strong> (1 element): Total car length between 2.0-6.0 meters</p>
+            <p>• <strong>Upper/Lower profiles</strong> (10 elements): Height values at 5 equispaced points</p>
+            <p>• <strong>Wheel specifications</strong> (4 elements): Position and radius for left/right wheels</p>
+            
+            <h3>Evolution Process</h3>
+            <p>1. <strong>Population initialization:</strong> Generate 100 random car designs with constraint validation</p>
+            
+            <p>2. <strong>Fitness evaluation:</strong> Race cars on tracks and combine completion percentage with race time using the formula: fitness = fraction_covered × 1000 - elapsed_time</p>
+            
+            <p>3. <strong>Selection:</strong> Choose top 30% performers for breeding based on combined fitness score</p>
+            
+            <p>4. <strong>Crossover breeding:</strong> Generate offspring by combining genome segments from parent cars with random crossover points</p>
+            
+            <p>5. <strong>Mutation:</strong> Apply random mutations with 1% probability and 0.1 strength to maintain genetic diversity</p>
+            
+            <h3>Constraint Handling</h3>
+            <div class="modal-code">def adjust_car(car):
+    car[0] = np.clip(car[0], 2.0, 6.0)  # Frame length
+    # Ensure total height > 0.5m and < 5.0m
+    upper_shape, lower_shape = adjust_shapes(car[1], car[2])
+    # Validate wheel positions and sizes
+    return adjusted_car</div>
+            
+            <h3>Results After 30 Generations</h3>
+            <p>• Successfully evolved cars capable of completing challenging off-road tracks</p>
+            <p>• Demonstrated adaptation to different track profiles through track switching experiments</p>
+            <p>• Achieved significant performance improvements through evolutionary optimization</p>
+        `,
+        technologies: ['Python', 'NumPy', 'Genetic Algorithms', 'Optimization', 'Data Analysis', 'Statistical Analysis', 'Algorithm Development'],
+        github: 'https://github.com/K4thvsf/genetic-algorithm-car'
+    }
+};
+
+function openProjectModal(projectId) {
+    const modal = document.getElementById('projectModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    
+    const project = projectData[projectId];
+    if (!project) return;
+    
+    modalTitle.textContent = project.title;
+    
+    modalBody.innerHTML = `
+        <div class="modal-section">
+            <h3>Overview</h3>
+            <p>${project.overview}</p>
+        </div>
+        
+        <div class="modal-section">
+            <h3>Technologies Used</h3>
+            <div class="modal-tech-grid">
+                ${project.technologies.map(tech => 
+                    `<span class="modal-tech-tag">${tech}</span>`
+                ).join('')}
+            </div>
+        </div>
+        
+        <div class="modal-section">
+            <h3>Methodology & Implementation</h3>
+            ${project.methodology}
+        </div>
+        
+        <div class="modal-section" style="text-align: center; margin-top: 2rem;">
+            <a href="${project.github}" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                View Complete Project on GitHub
+            </a>
+        </div>
+    `;
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeProjectModal() {
+    const modal = document.getElementById('projectModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+    const modal = document.getElementById('projectModal');
+    if (event.target === modal) {
+        closeProjectModal();
+    }
+}
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeProjectModal();
+    }
+});
+
 // Export for potential external use
 window.PortfolioApp = {
     DNAAnimationSystem,
     Navigation,
     ScrollAnimations,
-    ContactForm
+    ContactForm,
+    openProjectModal,
+    closeProjectModal
 };

@@ -545,12 +545,28 @@ section {
 }
 
 /* Projects Section */
+#projects {
+    padding: var(--spacing-4xl) var(--spacing-2xl);
+}
+
+#projects .container {
+    max-width: none;
+    width: 100%;
+    padding: 0;
+}
+
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: var(--spacing-xl);
-    margin-bottom: var(--spacing-4xl);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 3rem;
     justify-items: center;
+    align-items: start;
+    margin-bottom: var(--spacing-4xl);
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 2rem;
 }
 
 /* When there's only one project, center it */
@@ -572,12 +588,62 @@ section {
 .project-card {
     background: var(--background-primary);
     border-radius: var(--border-radius-xl);
-    padding: var(--spacing-xl);
+    padding: var(--spacing-2xl);
     box-shadow: var(--shadow-medium), 0 0 20px rgba(6, 182, 212, 0.2);
     transition: var(--transition-medium);
     border: 1px solid var(--border-color);
     cursor: pointer;
     backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 480px;
+    height: 520px;
+    flex-shrink: 0;
+}
+
+.data-science-badge {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    color: var(--background-primary);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: var(--spacing-md);
+    width: fit-content;
+    box-shadow: 0 2px 4px rgba(34, 211, 238, 0.3);
+}
+
+/* Project Methods Section */
+.project-methods {
+    margin-top: var(--spacing-sm);
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--border-color);
+}
+
+.methods-text {
+    font-size: var(--font-size-xs);
+    color: var(--text-light);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.methods-text strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Enhanced Project Card Hover Effects */
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        var(--shadow-xl),
+        0 0 40px rgba(6, 182, 212, 0.2);
 }
 
 .project-card-link:hover .project-card {
@@ -621,23 +687,46 @@ section {
 
 .project-description {
     color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: var(--spacing-lg);
+    line-height: 1.5;
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-sm);
+    flex: 1;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.project-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    transition: var(--transition-medium);
+}
+
+.project-image:hover {
+    transform: scale(1.02);
+    border-color: var(--primary-color);
 }
 
 .project-tech {
     display: flex;
     flex-wrap: wrap;
     gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
 }
 
 .tech-tag {
     background: var(--background-secondary);
     color: var(--text-secondary);
-    padding: 4px 10px;
+    padding: var(--spacing-xs) var(--spacing-sm);
     border-radius: var(--border-radius-sm);
     font-size: var(--font-size-sm);
     font-weight: 500;
+    border: 1px solid var(--border-color);
 }
 
 .projects-cta {
@@ -857,10 +946,32 @@ section {
     transform: translateY(0);
 }
 
+@media (max-width: 1200px) {
+    .projects-grid {
+        max-width: 1000px;
+        gap: 1.5rem 2rem;
+    }
+    
+    .project-card {
+        max-width: 420px;
+        height: 480px;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .hero-content-centered {
         max-width: 100%;
+    }
+    
+    .projects-grid {
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .project-card {
+        max-width: 380px;
+        height: 450px;
     }
     
     .about-content {
@@ -937,6 +1048,13 @@ section {
     
     .projects-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .project-card {
+        max-width: 100%;
+        width: 100%;
     }
     
     .about-image {
@@ -989,5 +1107,141 @@ section {
     .footer-links {
         flex-direction: column;
         gap: var(--spacing-md);
+    }
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+}
+
+.modal-content {
+    background: var(--background-primary);
+    margin: 5% auto;
+    padding: var(--spacing-2xl);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-xl);
+    width: 90%;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-xl);
+    position: relative;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: color var(--transition-fast);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.close-modal:hover {
+    color: var(--primary-color);
+    background: rgba(6, 182, 212, 0.1);
+}
+
+.modal-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.modal-section h3 {
+    font-size: var(--font-size-xl);
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+}
+
+.modal-section p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+.modal-code {
+    background: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: var(--font-size-sm);
+    line-height: 1.4;
+    color: var(--accent-color);
+    overflow-x: auto;
+    margin: var(--spacing-md) 0;
+}
+
+.modal-tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--spacing-sm);
+    margin: var(--spacing-md) 0;
+}
+
+.modal-tech-tag {
+    background: rgba(6, 182, 212, 0.1);
+    color: var(--primary-color);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    text-align: center;
+    border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+@media (max-width: 968px) {
+    .project-card {
+        width: 400px;
+        height: 400px;
+        max-width: 90vw;
+    }
+    
+    .data-science-badge {
+        font-size: var(--font-size-xs);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .modal-content {
+        margin: 10% auto;
+        padding: var(--spacing-lg);
+        width: 95%;
+        max-height: 85vh;
+    }
+    
+    .modal-title {
+        font-size: var(--font-size-2xl);
     }
 }
