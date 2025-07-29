@@ -73,7 +73,7 @@
             <div class="about-content">
                 <div class="about-image-container">
                     <div class="about-image">
-                        <img src="profile-new.jpg" alt="Kathleen Araujo" class="about-profile-image">
+                        <img src="profile.jpg" alt="Kathleen Araujo" class="about-profile-image">
                     </div>
                 </div>
                 <div class="about-text">
@@ -102,6 +102,9 @@
                             <span class="skill-tag">Python</span>
                             <span class="skill-tag">R</span>
                             <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Excel</span>
+                            <span class="skill-tag">Office</span>
                             <span class="skill-tag">Bash</span>
                             <span class="skill-tag">Git</span>
                             <span class="skill-tag">HPC</span>
@@ -136,36 +139,137 @@
     <section id="projects" class="projects-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Featured Project</h2>
-                <p class="section-subtitle">Computational Solutions for Biological Challenges</p>
+                <h2 class="section-title">Data Science Projects</h2>
+                <p class="section-subtitle">Machine Learning & Computational Biology Solutions</p>
             </div>
             <div class="projects-grid">
-                <a href="https://github.com/PhageSeeker/PHAGESEEKER" target="_blank" class="project-card-link">
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3 class="project-title">PhageSeeker</h3>
-                            <div class="project-links">
-                                <div class="project-link">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                    </svg>
-                                </div>
+                <div class="project-card" onclick="openProjectModal('phageseeker')">
+                    <div class="data-science-badge">Bioinformatics • Data Analysis</div>
+                    <div class="project-header">
+                        <h3 class="project-title">PhageSeeker</h3>
+                        <div class="project-links">
+                            <div class="project-link">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
                             </div>
                         </div>
-                        <p class="project-description">
-                            A tool for detecting and analysing bacteriophage sequences in FASTA format files. 
-                            This Python script provides comprehensive analysis capabilities for identifying 
-                            viral sequences within genomic datasets, making it an essential tool for 
-                            bioinformatics workflows focused on phage research.
+                    </div>
+                    <p class="project-description">
+                        Bioinformatics tool for detecting and analyzing bacteriophage sequences in bacterial genome assemblies. 
+                        Uses BLAST database searches and pandas for data processing to identify viral sequences in FASTA format files.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">pandas</span>  
+                        <span class="tech-tag">BLAST Database</span>
+                        <span class="tech-tag">Sequence Analysis</span>
+                        <span class="tech-tag">FASTA Analysis</span>
+                        <span class="tech-tag">Data Processing</span>
+                    </div>
+                    <div class="project-methods">
+                        <p class="methods-text">
+                            <strong>Methods:</strong> BLAST database searches for sequence alignment, pandas for data manipulation and analysis, 
+                            and comprehensive reporting of identified viral sequences in genomic datasets.
                         </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Bioinformatics</span>
-                            <span class="tech-tag">FASTA Analysis</span>
-                            <span class="tech-tag">Phage Detection</span>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="openProjectModal('tcga-glioma')">
+                    <div class="data-science-badge">Data Analysis • Statistical Modeling</div>
+                    <div class="project-header">
+                        <h3 class="project-title">TCGA Glioma Data Analysis</h3>
+                        <div class="project-links">
+                            <div class="project-link">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                                </svg>
+                            </div>
                         </div>
                     </div>
-                </a>
+                    <img src="heatmap_glioma_project.png" alt="Glioma Expression Heatmap with Hierarchical Clustering" class="project-image">
+                    <p class="project-description">
+                        Comprehensive statistical analysis of 1,122 brain lower grade glioma samples from TCGA using R and Bioconductor. 
+                        Complete workflow from data cleaning through gene set analysis, including heatmap clustering, differential expression analysis, and IDH correlation studies.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">R</span>
+                        <span class="tech-tag">Bioconductor</span>
+                        <span class="tech-tag">omicsdata</span>
+                        <span class="tech-tag">Statistical Analysis</span>
+                        <span class="tech-tag">Data Visualization</span>
+                        <span class="tech-tag">Exploratory Analysis</span>
+                        <span class="tech-tag">Data Cleaning</span>
+                    </div>
+                    <div class="project-methods">
+                        <p class="methods-text">
+                            <strong>Methods:</strong> RNA expression analysis, DNA methylation profiling, molecular subtype classification, 
+                            and statistical analysis of clinical variables including age and ethnicity impacts on patient outcomes.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="openProjectModal('orf-prediction')">
+                    <div class="data-science-badge">Bioinformatics • Data Science</div>
+                    <div class="project-header">
+                        <h3 class="project-title">ORF Prediction Tool</h3>
+                        <div class="project-links">
+                            <div class="project-link">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M14.6 16.6l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4zm-5.2 0L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Python algorithm for predicting open reading frames (ORFs) in nucleotide sequences. 
+                        Implements start codon detection, stop codon identification, and genetic code translation with BRCA2 gene analysis example.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Bioinformatics</span>
+                        <span class="tech-tag">Tool Development</span>
+                        <span class="tech-tag">Sequence Analysis</span>
+                        <span class="tech-tag">Genetic Code</span>
+                        <span class="tech-tag">String Processing</span>
+                    </div>
+                    <div class="project-methods">
+                        <p class="methods-text">
+                            <strong>Methods:</strong> ATG start codon detection, stop codon identification (UAA, UAG, UGA), and genetic code translation with error handling.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="openProjectModal('car-genetic-algorithm')">
+                    <div class="data-science-badge">Machine Learning • Optimization</div>
+                    <div class="project-header">
+                        <h3 class="project-title">Genetic Algorithm Implementation</h3>
+                        <div class="project-links">
+                            <div class="project-link">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Machine learning implementation using genetic algorithms for optimization and predictive modeling. 
+                        Features statistical analysis, fitness evaluation metrics, data-driven selection algorithms, and model performance optimization across 30+ generations.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">NumPy</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Optimization</span>
+                        <span class="tech-tag">Predictive Modeling</span>
+                        <span class="tech-tag">Statistical Analysis</span>
+                    </div>
+                    <div class="project-methods">
+                        <p class="methods-text">
+                            <strong>Methods:</strong> Population generation, fitness evaluation, selection algorithms, crossover breeding, and mutation operations for evolutionary optimization.
+                        </p>
+                    </div>
+                </div>
             </div>
             <div class="projects-cta">
                 <a href="https://github.com/K4thvsf" class="btn btn-primary" target="_blank">View All Projects on GitHub</a>
@@ -245,6 +349,19 @@
             </div>
         </div>
     </footer>
+
+    <!-- Project Details Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle" class="modal-title">Project Details</h2>
+                <button class="close-modal" onclick="closeProjectModal()">&times;</button>
+            </div>
+            <div id="modalBody">
+                <!-- Modal content will be inserted here -->
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
