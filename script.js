@@ -881,7 +881,7 @@ class LanguageSystem {
             'hero-title': { en: 'Bioinformatician & Data Scientist', pt: 'Bioinformata & Cientista de Dados' },
             'hero-description': { en: 'Passionate about transforming biological data into actionable insights through cutting-edge computational methods and machine learning techniques.', pt: 'Apaixonada por transformar dados biológicos complexos em descobertas usando computação avançada e machine learning.' },
             'hero-btn-work': { en: 'View My Work', pt: 'Ver Meus Projetos' },
-            'hero-btn-contact': { en: 'Get In Touch', pt: 'Vamos Conversar' },
+            'hero-btn-contact': { en: 'Get In Touch', pt: 'Vamos conversar' },
             
             // About Section
             'about-title': { en: 'About Me', pt: 'Sobre Mim' },
@@ -920,9 +920,9 @@ class LanguageSystem {
             'project4-methods': { en: '<strong>Methods:</strong> Population generation, fitness evaluation, selection algorithms, and evolutionary optimization.', pt: '<strong>Métodos:</strong> Geração de população, avaliação de fitness, algoritmos de seleção e otimização evolutiva.' },
             
             // Contact Section
-            'contact-title': { en: 'Get In Touch', pt: 'Vamos Conversar' },
+            'contact-title': { en: 'Get In Touch', pt: 'Vamos conversar' },
             'contact-subtitle': { en: 'Let\'s discuss how we can collaborate on exciting bioinformatics projects', pt: 'Que tal discutirmos como podemos colaborar em projetos incríveis de bioinformática?' },
-            'contact-card-title': { en: 'Let\'s Connect', pt: 'Vamos nos Conectar' },
+            'contact-card-title': { en: 'Let\'s Connect', pt: 'Conecte-se comigo!' },
             'contact-card-text': { en: 'I\'m always interested in discussing new opportunities, research collaborations, or just chatting about the latest developments in bioinformatics and data science.', pt: 'Sempre tenho interesse em discutir novas oportunidades, colaborações de pesquisa ou simplesmente bater um papo sobre os últimos avanços em bioinformática e ciência de dados.' },
             'contact-email-title': { en: 'Contact Me', pt: 'Fale Comigo' },
             'contact-email-text': { en: 'Feel free to reach out to me directly via email:', pt: 'Sinta-se à vontade para entrar em contato diretamente por email:' },
