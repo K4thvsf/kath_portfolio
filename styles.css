@@ -646,18 +646,18 @@ section {
 /* Project Methods Section */
 .project-methods {
     margin-top: var(--spacing-sm);
-    padding-top: var(--spacing-sm);
-    border-top: 1px solid var(--border-color);
+    padding-top: 0;
 }
 
 .methods-text {
-    font-size: var(--font-size-xs);
+    font-size: 0.75rem;
     color: var(--text-light);
-    line-height: 1.4;
+    line-height: 1.3;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    margin-bottom: 0;
 }
 
 .methods-text strong {
