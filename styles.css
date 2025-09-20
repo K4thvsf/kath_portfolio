@@ -1423,12 +1423,17 @@ section {
         font-size: var(--font-size-xs);
     }
     
-    /* Ensure navbar doesn't overlap with language toggle */
+    /* Ensure proper spacing between language toggle and menu */
     .navbar {
-        padding-left: 80px;
+        padding-left: 100px;
     }
     
     .nav-container {
-        max-width: calc(100% - 80px);
+        max-width: calc(100% - 100px);
+        margin-left: 20px;
+    }
+    
+    .nav-toggle {
+        margin-left: 20px;
     }
 }
