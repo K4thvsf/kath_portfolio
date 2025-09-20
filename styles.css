@@ -94,6 +94,8 @@ body {
         linear-gradient(45deg, #0f172a, #1e293b, #0f172a);
     background-attachment: fixed;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
 }
 
 /* Lightweight DNA Background Animation - Design 2 */
@@ -150,6 +152,8 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--spacing-lg);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Navigation */
@@ -550,9 +554,31 @@ section {
 }
 
 #projects .container {
-    max-width: none;
+    max-width: 1200px;
     width: 100%;
-    padding: 0;
+    padding: 0 var(--spacing-lg);
+    box-sizing: border-box;
+}
+
+/* Mobile alignment for all sections */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--spacing-md) !important;
+        margin: 0 auto;
+    }
+    
+    #projects .container {
+        padding: 0 var(--spacing-md) !important;
+    }
+    
+    section {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    #projects {
+        padding: var(--spacing-4xl) 0;
+    }
 }
 
 .projects-grid {
@@ -1032,7 +1058,12 @@ section {
     }
     
     .hero-section {
-        padding: 100px 0 60px;
+        padding: 100px var(--spacing-md) 60px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
     
     .name {
@@ -1049,28 +1080,106 @@ section {
     
     .hero-buttons {
         justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-md);
+    }
+    
+    /* Better mobile centering */
+    .hero-content-centered {
+        text-align: center;
+        padding: 0 var(--spacing-lg);
+    }
+    
+    .hero-text {
+        max-width: 100%;
+        text-align: center;
+    }
+    
+    .hero-title, .hero-subtitle, .hero-description {
+        text-align: center;
+    }
+    
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+    }
+    
+    #about .container {
+        padding: 0 var(--spacing-md) !important;
+    }
+    
+    .about-text {
+        text-align: center;
+        max-width: 100%;
+    }
+    
+    .section-header {
+        text-align: center;
     }
     
     .projects-grid {
+        display: grid;
         grid-template-columns: 1fr;
         gap: 2rem;
-        padding: 0 1rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     
     .project-card {
-        max-width: 100%;
         width: 100%;
+        max-width: 100%;
+        text-align: center;
+        margin: 0;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    
+    .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .skill-category {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--spacing-xl);
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    #contact .container {
+        padding: 0 var(--spacing-md) !important;
     }
     
     .about-image {
         width: 120px;
         height: 120px;
+        margin: 0 auto var(--spacing-lg);
     }
 }
 
 @media (max-width: 480px) {
     .container {
         padding: 0 var(--spacing-md);
+        width: 100%;
+        max-width: 100vw;
+        box-sizing: border-box;
     }
     
     .nav-container {
@@ -1086,7 +1195,11 @@ section {
     }
     
     section {
-        padding: var(--spacing-2xl) 0;
+        padding: var(--spacing-2xl) var(--spacing-md);
+    }
+    
+    .hero-section {
+        padding: 80px var(--spacing-md) 40px;
     }
     
     .section-header {
@@ -1248,5 +1361,74 @@ section {
     
     .modal-title {
         font-size: var(--font-size-2xl);
+    }
+}
+
+/* Language Toggle Button */
+.language-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    display: flex;
+    background: var(--background-secondary);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-medium);
+    backdrop-filter: blur(10px);
+    padding: 4px;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-light);
+    padding: 8px 12px;
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    font-family: var(--font-family);
+}
+
+.lang-btn:hover {
+    background: rgba(6, 182, 212, 0.1);
+    color: var(--text-primary);
+}
+
+.lang-btn.active {
+    background: var(--primary-color);
+    color: var(--background-primary);
+    box-shadow: var(--shadow-light);
+}
+
+.lang-btn.active:hover {
+    background: var(--primary-dark);
+    color: var(--background-primary);
+}
+
+/* Mobile adjustments for language toggle */
+@media (max-width: 768px) {
+    .language-toggle {
+        top: 15px;
+        left: 15px;
+        right: auto;
+        padding: 3px;
+        z-index: 1002;
+    }
+    
+    .lang-btn {
+        padding: 6px 10px;
+        font-size: var(--font-size-xs);
+    }
+    
+    /* Ensure navbar doesn't overlap with language toggle */
+    .navbar {
+        padding-left: 80px;
+    }
+    
+    .nav-container {
+        max-width: calc(100% - 80px);
     }
 }
